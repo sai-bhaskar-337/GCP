@@ -1,0 +1,30 @@
+steps:
+  # Build Docker image
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '-t'
+      - 'asia-south1-docker.pkg.dev/project-41544a08-ca3f-4ea2-8ab/devops-repo/app:$SHORT_SHA'
+      - './app'
+
+  # Push to Artifact Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'push'
+      - 'asia-south1-docker.pkg.dev/project-41544a08-ca3f-4ea2-8ab/devops-repo/app:$SHORT_SHA'
+
+  # Deploy via Helm
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: bash
+    args:
+      - '-c'
+      - |
+        gcloud container clusters get-credentials devops-cluster \
+          --region asia-south1 \
+          --project project-41544a08-ca3f-4ea2-8ab
+        helm upgrade --install app-release ./helm/app-chart \
+          --set image.repository=asia-south1-docker.pkg.dev/project-41544a08-ca3f-4ea2-8ab/devops-repo/app \
+          --set image.tag=$SHORT_SHA
+
+substitutions:
+  _REGION: asia-south1
