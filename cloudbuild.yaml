@@ -26,5 +26,5 @@ steps:
           --set image.repository=asia-south1-docker.pkg.dev/project-41544a08-ca3f-4ea2-8ab/devops-repo/app \
           --set image.tag=$SHORT_SHA
 
-substitutions:
-  _REGION: asia-south1
+options:
+  logging: CLOUD_LOGGING_ONLY
