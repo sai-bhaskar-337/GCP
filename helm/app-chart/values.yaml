@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: asia-south1-docker.pkg.dev/project-41544a08-ca3f-4ea2-8ab/devops-repo/app
-  tag: v3
+  tag: v4
   pullPolicy: Always
 
 service:
