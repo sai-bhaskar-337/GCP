@@ -11,5 +11,5 @@ spec:
   ports:
     - name: http
       port: {{ .Values.service.port }}
-      targetPort: 80   # 🔥 FIXED (was 'http')
+      targetPort: 80   
       protocol: TCP

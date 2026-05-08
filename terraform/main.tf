@@ -1,10 +1,8 @@
-# Create VPC Network
 resource "google_compute_network" "vpc" {
   name                    = "devops-vpc"
   auto_create_subnetworks = true
 }
 
-# Create GKE Cluster (without default node pool)
 resource "google_container_cluster" "gke" {
   name     = "devops-cluster"
   location = "asia-south1"
@@ -25,7 +23,6 @@ resource "google_container_cluster" "gke" {
   }
 }
 
-# Create Node Pool (custom config)
 resource "google_container_node_pool" "nodes" {
   name     = "devops-node-pool"
   cluster  = google_container_cluster.gke.name
