@@ -1,7 +1,7 @@
 {
   "version": 4,
   "terraform_version": "1.15.1",
-  "serial": 56,
+  "serial": 54,
   "lineage": "3a5aaf6e-2cf8-b4d4-a6b1-0d92453634a0",
   "outputs": {},
   "resources": [
@@ -43,7 +43,7 @@
             "name": "devops-vpc",
             "project": "project-41544a08-ca3f-4ea2-8ab"
           },
-          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH0sInNjaGVtYV92ZXJzaW9uIjoiMCJ9"
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19"
         }
       ]
     }
