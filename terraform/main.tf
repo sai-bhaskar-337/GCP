@@ -30,11 +30,19 @@ resource "google_container_node_pool" "nodes" {
 
   initial_node_count = 1
 
+  # Autoscaling is not required for current project workload.
+  # In future, if application traffic increases, enable below block.
+
+  # autoscaling {
+  #   min_node_count = 1
+  #   max_node_count = 5
+  # }
+
   node_config {
-    machine_type = "e2-medium"   # 1 vCPU, 4GB RAM — minimum viable for GKE
+    machine_type = "e2-medium"
 
     disk_type    = "pd-standard"
-    disk_size_gb = 30            # GKE recommended minimum
+    disk_size_gb = 30
 
     image_type = "COS_CONTAINERD"
   }
